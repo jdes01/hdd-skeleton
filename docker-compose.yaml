@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: ./
+      target: web
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    depends_on:
+      - api
+    networks:
+      - network
+
+  api:
+    build:
+      context: ./
+      target: api
+    environment:
+      - PORT=3333
+      - REDIS_HOST="cache"
+      - REDIS_PORT=6379
+    ports:
+      - 3333:3333
+    volumes:
+      - .:/app
+    # depends_on:
+    networks:
+      - network
+
+
+
+# volumes:
+
+networks:
+  network:
+    driver: bridge
