@@ -1,9 +1,6 @@
-import { Pizza } from "../model/pizza";
-import { PizzaId, PizzaName } from "../model/value_object";
+import { PizzaName } from "../model/value_object";
 
-export interface PizzaRepository {
+export interface PizzaRepository<Pizza, PizzaId> {
     find(id: PizzaId): Promise<Pizza>;
-    findByName(name: PizzaName): Promise<Pizza | null>;
-    findAll(): Promise<Array<Pizza>>;
     save(pizza: Pizza): void;
 }

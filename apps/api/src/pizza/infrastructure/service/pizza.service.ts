@@ -17,21 +17,11 @@ export class PizzaService {
     ) { }
 
     async createPizza(payload: CreatePizzaDTO): Promise<Result<null, PizzaError>> {
-
-        const foundPizza = await this.queryBus.execute<IQuery, Array<PizzaDTO> | null>(new GetPizzaByNameQuery(payload.name));
-
-        if (foundPizza.length !== 0) {
-            return new Err(PizzaAlreadyExistsError.withName(PizzaName.fromString(payload.name)))
-        }
-
-        this.commandBus.execute<ICommand, Result<null, PizzaError>>(new CreatePizzaCommand(payload.name));
-
-        return new Ok(null)
+        return await this.commandBus.execute<ICommand, Result<null, PizzaError>>(new CreatePizzaCommand(payload.name));
     }
 
 
     async getPizzas(_: GetAllPizzasDTO): Promise<Array<PizzaDTO>> {
-
         return await this.queryBus.execute<IQuery, Array<PizzaDTO> | null>(new GetPizzasQuery());
     }
 
