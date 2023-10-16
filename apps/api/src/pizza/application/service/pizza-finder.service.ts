@@ -5,5 +5,5 @@ export const PIZZA_FINDER = 'PIZZA_FINDER';
 
 export interface PizzaFinder {
   findAll(): Promise<Array<PizzaDTO>>;
-  findByName(name: PizzaName): Promise<PizzaDTO | null>;
+  findByName(name: PizzaName): Promise<Array<PizzaDTO>>;
 }

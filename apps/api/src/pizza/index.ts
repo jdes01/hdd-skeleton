@@ -1,1 +1,1 @@
-export * from './pizza.module';
+export * from './infrastructure/pizza.module';

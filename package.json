@@ -2,7 +2,9 @@
   "name": "@hdd-skeleton/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:debug": "node --inspect=0.0.0.0:9229 -r tsconfig-paths/register -r ts-node/register -r tsconfig-paths/register -r ts-node/register -r dotenv/config src/main.ts"
+  },
   "private": true,
   "dependencies": {
     "@aulasoftwarelibre/nestjs-eventstore": "^0.8.0",
@@ -13,6 +15,8 @@
     "@nestjs/platform-express": "^10.0.2",
     "@nestjs/swagger": "^7.1.13",
     "axios": "^1.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
     "neverthrow": "^6.0.0",
     "next": "13.4.1",
     "react": "18.2.0",

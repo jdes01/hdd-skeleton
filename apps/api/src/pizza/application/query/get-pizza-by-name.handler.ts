@@ -15,7 +15,7 @@ export class GetPizzaByNameHandler implements IQueryHandler {
         private readonly pizzaFinder: PizzaFinder,
     ) { }
 
-    async execute(query: GetPizzaByNameQuery): Promise<PizzaDTO | null> {
+    async execute(query: GetPizzaByNameQuery): Promise<Array<PizzaDTO>> {
         return this.pizzaFinder.findByName(PizzaName.fromString(query.name));
     }
 }
