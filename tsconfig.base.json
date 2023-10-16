@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@hdd-skeleton/common": ["common/src/index.ts"]
+      "@hdd-skeleton/common": ["common/src/index.ts"],
+      "@hdd-skeleton/contracts": ["contracts/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
