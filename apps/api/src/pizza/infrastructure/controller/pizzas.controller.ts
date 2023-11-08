@@ -3,6 +3,7 @@ import {
     Controller,
     Get,
     HttpCode,
+    Param,
     ValidationPipe,
 } from '@nestjs/common';
 import { GetAllPizzasDTO } from '@hdd-skeleton/contracts';
@@ -15,7 +16,7 @@ export class PizzasController {
 
     @Get()
     @HttpCode(200)
-    async get(@Body(new ValidationPipe()) getAllPizzasDTO: GetAllPizzasDTO) {
+    async get(@Param(new ValidationPipe()) getAllPizzasDTO: GetAllPizzasDTO) {
         return await this.pizzaService.getPizzas(getAllPizzasDTO);
 
     }
